@@ -9,6 +9,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Parameters;
 
 import java.time.Duration;
@@ -17,6 +18,11 @@ public class BaseTest {
     protected WebDriver driver;
     protected static final Logger logger = LogManager.getLogger(BaseTest.class);
     protected static final String BASE_URL = ConfigReader.getProperty("base.url");
+
+    @BeforeSuite
+    public void initReport() {
+        ExtentReportManager.initReport();
+    }
 
     @Parameters("browser")
     @BeforeMethod
@@ -42,6 +48,10 @@ public class BaseTest {
         if (driver != null) {
             driver.quit();
         }
+    }
+
+    @AfterMethod
+    public void afterMethod() {
         ExtentReportManager.flushReport();
     }
 } 
