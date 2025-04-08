@@ -12,7 +12,7 @@ public class LoginTest extends BaseTest {
     public void testSuccessfulLogin() {
         LoginPage loginPage = new LoginPage(driver);
         
-        // Test data
+        // Test data - using valid credentials from automationexercise.com
         String email = "test@example.com";
         String password = "password123";
         
@@ -37,8 +37,8 @@ public class LoginTest extends BaseTest {
         loginPage.login(email, password);
         
         // Verify login failure
-        boolean isLoginSuccessful = loginPage.isLoginSuccessful();
-        Assert.assertFalse(isLoginSuccessful, "Login should have failed with invalid credentials");
+        boolean isErrorDisplayed = loginPage.isLoginErrorDisplayed();
+        Assert.assertTrue(isErrorDisplayed, "Error message should be displayed for invalid login");
         ExtentReportManager.logPass("Invalid login test completed successfully");
     }
 } 

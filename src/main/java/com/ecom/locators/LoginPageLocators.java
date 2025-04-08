@@ -3,11 +3,12 @@ package com.ecom.locators;
 import org.openqa.selenium.By;
 
 public class LoginPageLocators {
-    // Login page locators
-    private final By emailInput = By.id("email");
-    private final By passwordInput = By.id("password");
-    private final By loginButton = By.xpath("//button[contains(text(),'Login')]");
-    private final By successMessage = By.xpath("//div[contains(@class,'alert-success')]");
+    // Login page locators for automationexercise.com
+    private final By emailInput = By.xpath("//input[@data-qa='login-email']");
+    private final By passwordInput = By.xpath("//input[@data-qa='login-password']");
+    private final By loginButton = By.xpath("//button[@data-qa='login-button']");
+    private final By successMessage = By.xpath("//a[contains(text(),'Logged in as')]");
+    private final By errorMessage = By.xpath("//p[contains(text(),'Your email or password is incorrect!')]");
 
     public By getEmailInput() {
         return emailInput;
@@ -23,5 +24,9 @@ public class LoginPageLocators {
 
     public By getSuccessMessage() {
         return successMessage;
+    }
+
+    public By getErrorMessage() {
+        return errorMessage;
     }
 } 

@@ -8,7 +8,9 @@
         <methods>
           <include name="testInvalidLogin"/>
           <include name="testSuccessfulLogin"/>
+          <include name="initReport"/>
           <include name="tearDown"/>
+          <include name="afterMethod"/>
           <include name="setUp"/>
         </methods>
       </class> <!-- com.ecom.tests.LoginTest -->
